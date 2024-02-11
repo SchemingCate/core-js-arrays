@@ -343,8 +343,17 @@ function createChunks(/* arr, chunkSize */) {
  *    generateOdds(2) => [ 1, 3 ]
  *    generateOdds(5) => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  throw new Error('Not implemented');
+function generateOdds(len) {
+  const odds = len === 0 ? [] : new Array(len).fill(undefined);
+  if (len === 0) {
+    return odds;
+  }
+  let oddsCount = 1;
+  return odds.map((el, i) => {
+    if (i === 0) return oddsCount;
+    oddsCount += 2;
+    return oddsCount;
+  });
 }
 
 /**
